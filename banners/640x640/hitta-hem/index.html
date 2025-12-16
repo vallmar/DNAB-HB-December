@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="ad.size" content="width=640,height=640">
+    <title>Hitta hem 640x640</title>
+    <style>
+        @font-face {
+            font-family: 'Handelsbanken Serif';
+            src: url('../WOFF2/HandelsbankenSerif-Bold.woff2') format('woff2');
+            font-weight: bold;
+            font-style: normal;
+        }
+        html {
+            width: 640px;
+            height: 640px;
+            background: white;
+            top: 0;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            width: 640px;
+            height: 640px;
+            font-family: 'Handelsbanken Serif', serif;
+            background: #003b54;
+            color: #fff;
+            overflow: hidden;
+            position: relative;
+        }
+                .top-image {
+            display: block;
+            width: 576px;
+            height: 288px;
+            margin: 20px auto 0 auto;
+            border-radius: 6px;
+            object-fit: cover;
+            background-color: #ccc; /* Placeholder color */
+        }
+        .copy {
+            position: absolute;
+            left: 24px;
+            right: 24px;
+            top: 50%;
+        }
+        .copy p {
+            font-size: 39px;
+            line-height: 39px;
+            margin: 0;
+            margin-bottom: 8px;
+            display: block;
+            color: #3CADFF;
+        }
+         .copy p:first-of-type {
+            color: white;
+        }
+        .subcopy {
+            position: absolute;
+            left: 24px;
+            bottom: 26px;
+            font-size: 18px;
+        }
+        .wordmark {
+            position: absolute;
+            right: 24px;
+            bottom: 24px;
+            width: 150px;
+        }
+        .click-layer {
+            position: absolute;
+            inset: 0;
+            cursor: pointer;
+            z-index: 10;
+        }
+            .pivot.line {
+            opacity: 1;
+        }
+        .pivot {
+            opacity: 0;
+            transform: translate(56px, 0px);
+            will-change: transform, opacity;
+        }
+
+        .pivot.headline {
+            opacity: 0;
+            transform: translate(0px, 36px);
+            will-change: transform, opacity;
+        }
+        .pivot.is-y {
+            opacity: 1;
+            transform: translate(0px, 0px);
+            transition: transform 520ms cubic-bezier(0.2, 0.0, 0.0, 1.0), opacity 520ms cubic-bezier(0.2, 0.0, 0.0, 1.0);
+        }
+
+        .pivot.is-x {
+            transform: translate(0px, 0px);
+            opacity: 1;
+
+            transition: transform 420ms cubic-bezier(0.2, 0.0, 0.0, 1.0);
+        }
+    </style>
+</head>
+<body>
+    <div id="ad">
+        <img class="top-image" src="image.jpg" alt="">
+        <div class="copy headline pivot is-y">
+            <p class="line pivot is-x" data-pivot-group="headline">Hitta hem.</p>
+            <p class="line pivot is-x" data-pivot-group="headline">Med långsiktig</p>
+            <p class="line pivot is-x" data-pivot-group="headline">Private banking</p>
+            <p class="line pivot is-x" data-pivot-group="headline">nära dig</p>
+        </div>
+        <div class="subcopy pivot is-x" data-pivot-group="subcopy">Välkommen att boka<br>ett personligt samtal</div>
+        <img class="wordmark pivot is-x" src="HB_Wordmark.svg" alt="Handelsbanken">
+        <a href="#" class="click-layer" id="clickArea"></a>
+    </div>
+        <script>
+        var clickTag = "https://www.handelsbanken.se/";
+        document.getElementById('clickArea').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open(window.clickTag || clickTag, '_blank');
+        });
+        
+        (function () {
+
+            function onReady(fn) {
+                if (document.readyState === 'complete' || document.readyState === 'interactive') {
+                    window.setTimeout(fn, 0);
+                    return;
+                }
+                document.addEventListener('DOMContentLoaded', fn, { once: true });
+            }
+
+            var prefersReducedMotion = false;
+            try {
+                prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            } catch (e) {
+                prefersReducedMotion = false;
+            }
+
+            var Y_DURATION = 520;
+
+            function setInitial(el) {
+                el.classList.remove('is-y');
+                el.classList.remove('is-x');
+                // Keep base .pivot styles for initial state
+            }
+
+            function pivotIn(el, delayMs) {
+                // console.log(delayMs);
+                const yMovement = el.classList.contains('is-y');
+                setInitial(el);
+                // if (prefersReducedMotion) {
+                //     el.style.opacity = '1';
+                //     el.style.transform = 'translate(0px, 0px)';
+                //     return;
+                // }
+
+                // Phase 1: Vertical move (Y) + fade in. X stays constant.
+                window.setTimeout(function () {
+                    if(yMovement) {
+                        el.classList.add('is-y');
+                        
+                // console.log(yMovement);
+                    }
+                    else{
+
+                        // Phase 2: Horizontal move (X only). Y stays at 0.
+                        window.setTimeout(function () {
+                            el.classList.add('is-x');
+                        }, Y_DURATION);
+                        
+                    }
+                }, delayMs);
+            }
+
+            function run() {
+                var headlineLines = Array.prototype.slice.call(document.querySelectorAll('[data-pivot-group="headline"]'));
+                var subcopy = document.querySelector('[data-pivot-group="subcopy"]');
+                var copyContainer = document.querySelector('.headline.pivot');
+                var wordmark = document.querySelector('.wordmark');
+                
+                if (copyContainer) pivotIn(copyContainer, 100);
+                for (var i = 0; i < headlineLines.length; i++) {
+                    pivotIn(headlineLines[i], 300 +(i * 40));
+                }
+
+                if (subcopy) {
+                    pivotIn(subcopy, 520);
+                }
+                if (wordmark) {
+                    pivotIn(wordmark, 520);
+                }
+            }
+            onReady(function () {
+                // Defer one frame so layout styles apply before we toggle classes.
+                window.requestAnimationFrame(run);
+            });
+        })();
+    </script>
+</body>
+</html>

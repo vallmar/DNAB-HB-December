@@ -1,0 +1,28 @@
+
+Titta på 640x640 se klart versionen, denna version är alla element korrekt placerade oc exacta i sin storlek. 
+Animationen som kall användas kan du kopiera från 640x640indexorg.html.
+Där ser du vilka element som skall användas och hur det skall gå till, hela copyn kommer förs in och sedan rör sig varje rad till vänster, 
+samtidigt så gör handelsbankenloggan och subcopyn samma sak.
+
+
+250x600 
+Subcopy ligger direct under copyn alltså inte i vänstra hornet.
+Loggan ligger centrerad med en width på 570px. 30px från botten.
+bilden är centrerad i toppen, bred 50% av sin egen storlek.
+
+
+320x480 här visas ingen bild, ta bort allt som har med bilden att göra.
+Subcopy ligger direct under copyn alltså inte i vänstra hornet.
+Loggan ligger centrerad med en width på 570/2px. 30/2px från botten.
+
+980x240
+här visas bilden till höger den är 542px bred, 41px från höger
+loggan är 480px bred och 41 px från vänster och 41 från botten.
+copyn är 70px från toppen och 41 från vänster.-
+Fontstorlek 54
+
+980x600
+här visas bilden till höger den är 884/2px bred, 63/2px från höger
+loggan är 683/2px bred och 63/2px från vänster och 63/2 från botten.
+copyn är 66/2px från toppen och 71/2 från vänster.-
+Fontstorlek 78/2

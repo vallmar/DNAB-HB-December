@@ -1,0 +1,19 @@
+Pivot Rörelseprincip
+Pivot kan användas för text, bilder eller övriga visuella element som kräver en in-animation. Principen aktiverar en layout genom att framhäva dess underliggande grid, genom att flytta ett element längs både X- och Y-axeln för att landa i sin slutposition.
+
+Pivot följer alltid samma ordningsföljd:
+
+Först animeras elementet längs Y-axeln (uppåt eller nedåt) för att förflyttas från en rad till en annan.
+
+Därefter animeras elementet längs X-axeln (endast åt vänster) för att förflyttas från en kolumn till sin slutliga kolumn.
+
+(Vänster kolumn text) I exemplet nedan ser vi en två-radig rubrik som animeras in med hjälp av Pivot-principen. När man animerar mer än en rad text, rör sig varje rad individuellt längs Y-axeln, och sedan animeras båda raderna åt vänster med en förskjutning på två bildrutor. Om andra element som detaljerad text visas, kan synlighet uppnås genom att enbart röra sig längs X-axeln
+
+(Höger kolumn text) I exemplet nedan animeras en bild och detaljerad text in med hjälp av Pivot-principen. Om andra element visas, som detaljerad text, kan synlighet uppnås genom att enbart röra sig längs X-axeln.
+
+Pivot Undvik
+För att säkerställa konsekvens och kvalitetskontroll i alla animerade kontaktytor, följ riktlinjerna som ingår i detta kapitel. Nedan finner du flera exempel på felaktig användning.
+
+(Vänster kolumn text) Använd inte en separat hastighetskurva för att animera element.
+
+(Höger kolumn text) Animera inte längs X- och Y-axeln samtidigt. Detta avaktiverar layoutens underliggande rutnät.

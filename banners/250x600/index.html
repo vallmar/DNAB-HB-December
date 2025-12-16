@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="ad.size" content="width=250,height=600">
+    <title>Banner 250x600</title>
+    <style>
+        @font-face {
+            font-family: 'Handelsbanken Serif';
+            src: url('WOFF2/HandelsbankenSerif-Bold.woff2') format('woff2');
+            font-weight: bold;
+            font-style: normal;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            width: 250px;
+            height: 600px;
+            font-family: 'Handelsbanken Serif', serif;
+            overflow: hidden;
+            box-sizing: border-box;
+            border: 1px solid #000; /* Optional: to see the boundary */
+        }
+            .pivot.line {
+            opacity: 1;
+        }
+        .pivot {
+            opacity: 0;
+            transform: translate(56px, 0px);
+            will-change: transform, opacity;
+        }
+
+        .pivot.headline {
+            opacity: 0;
+            transform: translate(0px, 36px);
+            will-change: transform, opacity;
+        }
+        .pivot.is-y {
+            opacity: 1;
+            transform: translate(0px, 0px);
+            transition: transform 520ms cubic-bezier(0.2, 0.0, 0.0, 1.0), opacity 520ms cubic-bezier(0.2, 0.0, 0.0, 1.0);
+        }
+
+        .pivot.is-x {
+            transform: translate(0px, 0px);
+            opacity: 1;
+
+            transition: transform 420ms cubic-bezier(0.2, 0.0, 0.0, 1.0);
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
