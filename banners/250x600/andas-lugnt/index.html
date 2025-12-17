@@ -7,8 +7,8 @@
     <title>Andas lugnt 250x600</title>
     <style>
         @font-face {
-            font-family: 'Handelsbanken Serif';
-            src: url('../WOFF2/HandelsbankenSerif-Bold.woff2') format('woff2');
+            font-family: 'Handelsbanken Sans';
+            src: url('HandelsbankenSans-Bold.woff2') format('woff2');
             font-weight: bold;
             font-style: normal;
         }
@@ -23,8 +23,8 @@
             padding: 0;
             width: 250px;
             height: 600px;
-            font-family: 'Handelsbanken Serif', serif;
-            background: #003b54;
+            font-family: 'Handelsbanken Sans', sans-serif;
+            background: #002f4d;
             color: #fff;
             overflow: hidden;
             position: relative;
@@ -43,10 +43,10 @@
             position: absolute;
             left: 15px;
             right: 15px;
-            top: 250px;
+            top: 315px;
         }
         .copy p {
-            font-size: 22px;
+            font-size: 28px;
             line-height: 22px;
             margin: 0;
             margin-bottom: 8px;
@@ -58,14 +58,13 @@
         }
         .subcopy {
             position: absolute;
-            top: 450px;
+            top: 452px;
             left: 15px;
-            font-size: 12px;
+            font-size: 15px;
         }
         .wordmark {
             position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 15px;
             bottom: 15px;
             width: 219px;
         }
@@ -78,9 +77,23 @@
             .pivot.line {
             opacity: 1;
         }
+        .top-image.pivot {
+            opacity: 0;
+            transform: translate(-50%, 36px);
+            will-change: transform, opacity;
+        }
+        .top-image.pivot.is-y {
+            opacity: 0.75;
+            transform: translate(-50%, 0px);
+            transition: transform 520ms cubic-bezier(0.2, 0.0, 0.0, 1.0), opacity 520ms cubic-bezier(0.2, 0.0, 0.0, 1.0);
+        }
+        .top-image.pivot.is-full-opacity {
+            opacity: 1 !important;
+            transition: opacity 420ms cubic-bezier(0.2, 0.0, 0.0, 1.0);
+        }
         .pivot {
             opacity: 0;
-            transform: translate(56px, 0px);
+            transform: translate(28px, 0px);
             will-change: transform, opacity;
         }
 
@@ -105,12 +118,12 @@
 </head>
 <body>
     <div id="ad">
-        <img class="top-image" src="image.jpg" alt="">
+        <img class="top-image" src="AndasLugnt-250x600-6px-runda-horn.jpg" alt="">
         <div class="copy headline pivot is-y">
             <p class="line pivot is-x" data-pivot-group="headline">Andas lugnt.</p>
-            <p class="line pivot is-x" data-pivot-group="headline">Med långsiktig</p>
-            <p class="line pivot is-x" data-pivot-group="headline">Private banking</p>
-            <p class="line pivot is-x" data-pivot-group="headline">nära dig</p>
+            <p class="line pivot is-x" data-pivot-group="headline">Med trygg</p>
+            <p class="line pivot is-x" data-pivot-group="headline">Private Banking</p>
+            <p class="line pivot is-x" data-pivot-group="headline">nära dig.</p>
         </div>
         <div class="subcopy pivot is-x" data-pivot-group="subcopy">Välkommen att boka<br>ett personligt samtal</div>
         <img class="wordmark pivot is-x" src="HB_Wordmark.svg" alt="Handelsbanken">
@@ -177,6 +190,12 @@
             }
 
             function run() {
+                var image = document.querySelector('.top-image');
+                if (image) {
+                    image.classList.add('pivot');
+                    setTimeout(function() { image.classList.add('is-y'); }, 100);
+                    setTimeout(function() { image.classList.add('is-full-opacity'); }, 820);
+                }
                 var headlineLines = Array.prototype.slice.call(document.querySelectorAll('[data-pivot-group="headline"]'));
                 var subcopy = document.querySelector('[data-pivot-group="subcopy"]');
                 var copyContainer = document.querySelector('.headline.pivot');
@@ -202,3 +221,4 @@
     </script>
 </body>
 </html>
+

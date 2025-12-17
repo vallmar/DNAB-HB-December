@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="sv">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,75 +8,74 @@
     <title>Andas lugnt 320x480</title>
     <style>
         @font-face {
-            font-family: 'Handelsbanken Serif';
-            src: url('../WOFF2/HandelsbankenSerif-Bold.woff2') format('woff2');
+            font-family: 'Handelsbanken Sans';
+            src: url('HandelsbankenSans-Bold.woff2') format('woff2');
             font-weight: bold;
             font-style: normal;
         }
+
         html {
             width: 320px;
             height: 480px;
             background: white;
             top: 0;
         }
+
         body {
             margin: 0;
             padding: 0;
             width: 320px;
             height: 480px;
-            font-family: 'Handelsbanken Serif', serif;
-            background: #003b54;
+            font-family: 'Handelsbanken Sans', sans-serif;
+            background: #002f4d;
             color: #fff;
             overflow: hidden;
             position: relative;
         }
-                .top-image {
-            display: block;
-            width: 288px;
-            height: 216px;
-            margin: 20px auto 0 auto;
-            border-radius: 6px;
-            object-fit: cover;
-            background-color: #ccc; /* Placeholder color */
-        }
-        .copy {
+
+         .copy {
             position: absolute;
-            left: 24px;
-            right: 24px;
-            top: 50%;
+            left: 17px;
+            top: 20px;
         }
         .copy p {
-            font-size: 30px;
-            line-height: 30px;
+            font-size: 34px;
+            line-height: 28px;
             margin: 0;
             margin-bottom: 8px;
             display: block;
             color: #3CADFF;
         }
-         .copy p:first-of-type {
+
+        .copy p:first-of-type {
             color: white;
         }
-        .subcopy {
+
+      .subcopy {
             position: absolute;
-            left: 24px;
-            bottom: 26px;
-            font-size: 18px;
+            left: 17px;
+            top: 180px;
+            font-size: 17px;
         }
-        .wordmark {
+
+         .wordmark {
             position: absolute;
-            right: 24px;
+            left: 18px;
             bottom: 24px;
-            width: 100px;
+            width: 283px;
         }
+
         .click-layer {
             position: absolute;
             inset: 0;
             cursor: pointer;
             z-index: 10;
         }
-            .pivot.line {
+
+        .pivot.line {
             opacity: 1;
         }
+
         .pivot {
             opacity: 0;
             transform: translate(56px, 0px);
@@ -87,6 +87,7 @@
             transform: translate(0px, 36px);
             will-change: transform, opacity;
         }
+
         .pivot.is-y {
             opacity: 1;
             transform: translate(0px, 0px);
@@ -101,26 +102,26 @@
         }
     </style>
 </head>
+
 <body>
     <div id="ad">
-        <img class="top-image" src="image.jpg" alt="">
         <div class="copy headline pivot is-y">
             <p class="line pivot is-x" data-pivot-group="headline">Andas lugnt.</p>
-            <p class="line pivot is-x" data-pivot-group="headline">Med långsiktig</p>
-            <p class="line pivot is-x" data-pivot-group="headline">Private banking</p>
-            <p class="line pivot is-x" data-pivot-group="headline">nära dig</p>
+            <p class="line pivot is-x" data-pivot-group="headline">Med trygg</p>
+            <p class="line pivot is-x" data-pivot-group="headline">Private Banking</p>
+            <p class="line pivot is-x" data-pivot-group="headline">nära dig.</p>
         </div>
         <div class="subcopy pivot is-x" data-pivot-group="subcopy">Välkommen att boka<br>ett personligt samtal</div>
         <img class="wordmark pivot is-x" src="HB_Wordmark.svg" alt="Handelsbanken">
         <a href="#" class="click-layer" id="clickArea"></a>
     </div>
-        <script>
+    <script>
         var clickTag = "https://www.handelsbanken.se/";
-        document.getElementById('clickArea').addEventListener('click', function(e) {
+        document.getElementById('clickArea').addEventListener('click', function (e) {
             e.preventDefault();
             window.open(window.clickTag || clickTag, '_blank');
         });
-        
+
         (function () {
 
             function onReady(fn) {
@@ -158,18 +159,18 @@
 
                 // Phase 1: Vertical move (Y) + fade in. X stays constant.
                 window.setTimeout(function () {
-                    if(yMovement) {
+                    if (yMovement) {
                         el.classList.add('is-y');
-                        
-                // console.log(yMovement);
+
+                        // console.log(yMovement);
                     }
-                    else{
+                    else {
 
                         // Phase 2: Horizontal move (X only). Y stays at 0.
                         window.setTimeout(function () {
                             el.classList.add('is-x');
                         }, Y_DURATION);
-                        
+
                     }
                 }, delayMs);
             }
@@ -179,10 +180,10 @@
                 var subcopy = document.querySelector('[data-pivot-group="subcopy"]');
                 var copyContainer = document.querySelector('.headline.pivot');
                 var wordmark = document.querySelector('.wordmark');
-                
+
                 if (copyContainer) pivotIn(copyContainer, 100);
                 for (var i = 0; i < headlineLines.length; i++) {
-                    pivotIn(headlineLines[i], 300 +(i * 40));
+                    pivotIn(headlineLines[i], 300 + (i * 40));
                 }
 
                 if (subcopy) {
@@ -199,4 +200,5 @@
         })();
     </script>
 </body>
+
 </html>

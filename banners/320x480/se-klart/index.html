@@ -7,8 +7,8 @@
     <title>Se klart 320x480</title>
     <style>
         @font-face {
-            font-family: 'Handelsbanken Serif';
-            src: url('../WOFF2/HandelsbankenSerif-Bold.woff2') format('woff2');
+            font-family: 'Handelsbanken Sans';
+            src: url('HandelsbankenSans-Bold.woff2') format('woff2');
             font-weight: bold;
             font-style: normal;
         }
@@ -23,40 +23,42 @@
             padding: 0;
             width: 320px;
             height: 480px;
-            font-family: 'Handelsbanken Serif', serif;
-            background: #003b54;
+            font-family: 'Handelsbanken Sans', sans-serif;
+            background: #002f4d;
             color: #fff;
             overflow: hidden;
             position: relative;
         }
         .copy {
             position: absolute;
-            left: 20px;
+            left: 17px;
             top: 20px;
         }
         .copy p {
-            font-size: 30px;
-            line-height: 30px;
+            font-size: 34px;
+            line-height: 28px;
             margin: 0;
             margin-bottom: 8px;
             display: block;
             color: #3CADFF;
         }
-         .copy p:first-of-type {
-           
+
+        .copy p:first-of-type {
             color: white;
         }
-        .subcopy {
+
+      .subcopy {
             position: absolute;
-            left: 24px;
-            top: 185px;
-            font-size: 18px;
+            left: 17px;
+            top: 180px;
+            font-size: 17px;
         }
-        .wordmark {
+
+         .wordmark {
             position: absolute;
             left: 18px;
-            bottom: 15px;
-            width: 285px;
+            bottom: 24px;
+            width: 283px;
         }
         .click-layer {
             position: absolute;
@@ -95,11 +97,12 @@
 <body>
     <div id="ad">
 
+
       <div class="copy headline pivot is-y">
-            <p class="line whit pivot is-xe" data-pivot-group="headline">Se klart.</p>
-            <p class="line blue pivot is-x" data-pivot-group="headline">Med långsiktig</p>
-            <p class="line blue pivot is-x" data-pivot-group="headline">Private banking</p>
-            <p class="line blue pivot is-x" data-pivot-group="headline">nära dig</p>
+            <p class="line pivot is-x" data-pivot-group="headline">Se klart.</p>
+            <p class="line pivot is-x" data-pivot-group="headline">Med långsiktig</p>
+            <p class="line pivot is-x" data-pivot-group="headline">Private Banking</p>
+            <p class="line pivot is-x" data-pivot-group="headline">nära dig.</p>
         </div>
         <div class="subcopy pivot is-x" data-pivot-group="subcopy">Välkommen att boka<br>ett personligt samtal</div>
 
@@ -171,14 +174,16 @@
                 var subcopy = document.querySelector('[data-pivot-group="subcopy"]');
                 var copyContainer = document.querySelector('.headline.pivot');
                 var wordmark = document.querySelector('.wordmark');
-                
-                pivotIn(copyContainer, 100);
+
+                if (copyContainer) pivotIn(copyContainer, 100);
                 for (var i = 0; i < headlineLines.length; i++) {
-                    pivotIn(headlineLines[i], 300 +(i * 40));
+                    pivotIn(headlineLines[i], 300 + (i * 40));
                 }
 
                 if (subcopy) {
                     pivotIn(subcopy, 520);
+                }
+                if (wordmark) {
                     pivotIn(wordmark, 520);
                 }
             }
@@ -190,3 +195,5 @@
     </script>
 </body>
 </html>
+
+

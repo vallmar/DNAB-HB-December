@@ -6,9 +6,11 @@ samtidigt så gör handelsbankenloggan och subcopyn samma sak.
 
 
 250x600 
+subcopy is 450px from top, fontsize 12
+
+Loggan ligger centrerad med en width på 219px. 15px från botten.
 Subcopy ligger direct under copyn alltså inte i vänstra hornet.
-Loggan ligger centrerad med en width på 570px. 30px från botten.
-bilden är centrerad i toppen, bred 50% av sin egen storlek.
+bilden är centrerad i 15px från toppen, bred 219px av sin egen storlek.
 
 
 320x480 här visas ingen bild, ta bort allt som har med bilden att göra.
@@ -16,13 +18,21 @@ Subcopy ligger direct under copyn alltså inte i vänstra hornet.
 Loggan ligger centrerad med en width på 570/2px. 30/2px från botten.
 
 980x240
-här visas bilden till höger den är 542px bred, 41px från höger
-loggan är 480px bred och 41 px från vänster och 41 från botten.
-copyn är 70px från toppen och 41 från vänster.-
-Fontstorlek 54
+här visas bilden till höger den är 542px bred, 20px från höger
+loggan är 240px bred och 20 px från vänster och 20 från botten.
+copyn är 35px från toppen och 20 från vänster.-
+Fontstorlek 27
 
 980x600
 här visas bilden till höger den är 884/2px bred, 63/2px från höger
 loggan är 683/2px bred och 63/2px från vänster och 63/2 från botten.
 copyn är 66/2px från toppen och 71/2 från vänster.-
 Fontstorlek 78/2
+
+
+Mått:
+640x640:
+Logga 648/2px
+fontsize 94/2px
+entire copy are (measured tight, no lineheight n beginning or end 416/2px)
+fontsize subcopy 16px (2 rows)

@@ -30,7 +30,7 @@ $messages = @(
         lines = @(
             @{ text = 'Se klart.'; color = 'white' },
             @{ text = 'Med långsiktig'; color = 'blue' },
-            @{ text = 'Private banking'; color = 'blue' },
+            @{ text = 'Private Banking'; color = 'blue' },
             @{ text = 'nära dig'; color = 'blue' }
         ); 
         subcopy = 'Välkommen att boka<br>ett personligt samtal' 
@@ -135,7 +135,7 @@ function Get-HtmlContent {
             width: ${width}px;
             height: ${height}px;
             font-family: 'Handelsbanken Serif', serif;
-            background: #003b54;
+            background: #002f4d;
             color: #fff;
             overflow: hidden;
             position: relative;
