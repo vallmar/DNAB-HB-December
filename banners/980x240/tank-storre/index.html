@@ -51,7 +51,7 @@
             position: absolute;
             left: 24px;
             top: 120px;
-            font-size: 18px;
+            font-size: 16px;
        
         }
         .wordmark {
@@ -86,7 +86,7 @@
             will-change: transform, opacity;
         }
         .top-image.pivot.is-y {
-            opacity: 0.75;
+            opacity: 1;
             transform: translate(0px, 0px);
             transition: transform 520ms cubic-bezier(0.2, 0.0, 0.0, 1.0), opacity 520ms cubic-bezier(0.2, 0.0, 0.0, 1.0);
         }
@@ -127,7 +127,7 @@
             <p class="line pivot is-x" data-pivot-group="headline">Med kunnig Private Banking nära dig.</p>
             
         </div>
-        <div class="subcopy pivot is-x" data-pivot-group="subcopy">Välkommen att boka<br>ett personligt samtal</div>
+        <div class="subcopy pivot is-x" data-pivot-group="subcopy">Välkommen att boka ett personligt samtal</div>
         <img class="wordmark pivot is-x" src="HB_Wordmark.svg" alt="Handelsbanken">
         <a href="#" class="click-layer" id="clickArea"></a>
     </div>
@@ -209,10 +209,10 @@
                 }
 
                 if (subcopy) {
-                    pivotIn(subcopy, 520);
+                    pivotIn(subcopy, 380);
                 }
                 if (wordmark) {
-                    pivotIn(wordmark, 520);
+                    pivotIn(wordmark, 380);
                 }
             }
             onReady(function () {
