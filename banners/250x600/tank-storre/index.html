@@ -8,6 +8,12 @@
     <style>
         @font-face {
             font-family: 'Handelsbanken Sans';
+            src: url('HandelsbankenSans-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Handelsbanken Sans';
             src: url('HandelsbankenSans-Bold.woff2') format('woff2');
             font-weight: bold;
             font-style: normal;
@@ -62,6 +68,7 @@ border-radius: 6px;
             top: 442px;
             left: 15px;
             font-size: 15px;
+            font-weight: normal;
         }
         .wordmark {
             position: absolute;
@@ -86,7 +93,7 @@ border-radius: 6px;
         .top-image.pivot.is-y {
             opacity: 1;
             transform: translate(-50%, 0px);
-            transition: transform 520ms cubic-bezier(0.2, 0.0, 0.0, 1.0), opacity 520ms cubic-bezier(0.2, 0.0, 0.0, 1.0);
+            transition: transform 1000ms cubic-bezier(0.2, 0.0, 0.0, 1.0), opacity 1000ms cubic-bezier(0.2, 0.0, 0.0, 1.0);
         }
         .top-image.pivot.is-full-opacity {
             opacity: 1 !important;
@@ -105,14 +112,14 @@ border-radius: 6px;
         }
         .pivot.is-y {
             opacity: 1;
-            transform: translate(0px, 0px);
-            transition: transform 520ms cubic-bezier(0.2, 0.0, 0.0, 1.0), opacity 520ms cubic-bezier(0.2, 0.0, 0.0, 1.0);
+            transform: translate(01000ms cubic-bezier(0.2, 0.0, 0.0, 1.0), opacity 1000ms cubic-bezier(0.2, 0.0, 0.0, 1.0);
         }
 
         .pivot.is-x {
             transform: translate(0px, 0px);
             opacity: 1;
 
+            transition: transform 100
             transition: transform 420ms cubic-bezier(0.2, 0.0, 0.0, 1.0);
         }
     </style>
@@ -127,7 +134,7 @@ border-radius: 6px;
             <p class="line pivot is-x" data-pivot-group="headline">nära dig.</p>
         </div>
         <div class="subcopy pivot is-x" data-pivot-group="subcopy">Välkommen att boka<br>ett personligt samtal</div>
-        <img class="wordmark pivot is-x" src="HB_Wordmark.svg" alt="Handelsbanken">
+        <img class="wordmark" src="HB_Wordmark.svg" alt="Handelsbanken">
         <a href="#" class="click-layer" id="clickArea"></a>
     </div>
         <script>
@@ -154,7 +161,7 @@ border-radius: 6px;
                 prefersReducedMotion = false;
             }
 
-            var Y_DURATION = 520;
+            var Y_DURATION = 1000;
 
             function setInitial(el) {
                 el.classList.remove('is-y');
@@ -204,14 +211,11 @@ border-radius: 6px;
                 
                 if (copyContainer) pivotIn(copyContainer, 100);
                 for (var i = 0; i < headlineLines.length; i++) {
-                    pivotIn(headlineLines[i], 300 +(i * 40));
+                    pivotIn(headlineLines[i], 300 +(i * 80));
                 }
 
                 if (subcopy) {
-                    pivotIn(subcopy, 520);
-                }
-                if (wordmark) {
-                    pivotIn(wordmark, 520);
+                    pivotIn(subcopy, 1000);
                 }
             }
             onReady(function () {
