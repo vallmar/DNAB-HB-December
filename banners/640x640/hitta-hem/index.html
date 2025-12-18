@@ -64,12 +64,15 @@
            
             color: white;
         }
-        .subcopy {
+                .subcopy {
+            color: #f6f5ee;
             position: absolute;
             left: 28px;
             bottom: 22px;
             font-size: 18px;
+/* letter-spacing: normal; */
             font-weight: normal;
+            color: #f6f5ee;
         }
         .wordmark {
             position: absolute;
@@ -192,7 +195,7 @@
                         // Phase 2: Horizontal move (X only). Y stays at 0.
                         window.setTimeout(function () {
                             el.classList.add('is-x');
-                        }, Y_DURATION);
+                        }, 300);
                         
                     }
                 }, delayMs);
@@ -203,7 +206,7 @@
                 if (image) {
                     image.classList.add('pivot');
                     setTimeout(function() { image.classList.add('is-y'); }, 100);
-                    setTimeout(function() { image.classList.add('is-full-opacity'); }, 820);
+                    // setTimeout(function() { image.classList.add('is-full-opacity'); }, 820);
                 }
                 var headlineLines = Array.prototype.slice.call(document.querySelectorAll('[data-pivot-group="headline"]'));
                 var subcopy = document.querySelector('[data-pivot-group="subcopy"]');
