@@ -1,6 +1,9 @@
 ﻿<!DOCTYPE html>
 <html lang="sv">
 <head>
+          <script type="text/javascript">
+        var clickTag = "https://www.handelsbanken.se/"; 
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="ad.size" content="width=320,height=480">
@@ -55,6 +58,7 @@
         }
 
               .subcopy {
+                letter-spacing: 0.02em;
             color: #f6f5ee;
             position: absolute;
             left: 17px;
@@ -71,7 +75,7 @@
         }
         .click-layer {
             position: absolute;
-            inset: 0;
+            top:0; left:0; width:100%; height:100%;;
             cursor: pointer;
             z-index: 10;
         }
@@ -119,10 +123,9 @@
         <a href="#" class="click-layer" id="clickArea"></a>
     </div>
     <script>
-        var clickTag = "https://www.handelsbanken.se/";
         document.getElementById('clickArea').addEventListener('click', function(e) {
             e.preventDefault();
-            window.open(window.clickTag || clickTag, '_blank');
+               window.open(window.clickTag, '_blank');
         });
         
         (function () {

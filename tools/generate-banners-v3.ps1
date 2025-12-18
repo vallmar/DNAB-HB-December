@@ -174,7 +174,7 @@ function Get-HtmlContent {
         }
         .click-layer {
             position: absolute;
-            inset: 0;
+            top:0; left:0; width:100%; height:100%;;
             cursor: pointer;
             z-index: 10;
         }
